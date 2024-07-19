@@ -5,6 +5,8 @@
 
 #app {
   font-weight: normal;
+  font-family: 'Inter',
+    'Noto Sans JP' !important
 }
 
 a,

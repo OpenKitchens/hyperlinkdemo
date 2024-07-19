@@ -126,7 +126,7 @@ function getQueryParams(url) {
 <style scoped>
 /* Add any additional styles here if needed */
 input {
-  font-family: monospace !important;
+  /*font-family: monospace !important;*/
 }
 
 .wrapper {
