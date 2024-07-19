@@ -15,11 +15,12 @@
         <div class="flex input">
           <input type="text" placeholder="Enter hyperlink" v-model="input" @keydown.enter="constract"
             class="flex-grow bg-white border border-r-0 text-black px-4 py-2 rounded-l-md focus:outline-none placeholder:text-zinc-400" />
-          
-          <button class="py-1 px-1 text-base font-semibold transition-colors border border-x-0 bg-white" @click="input = '';constract()">
+
+          <button class="py-1 px-3 text-base font-semibold transition-colors border border-x-0 bg-white"
+            @click="input = ''; constract()">
             <img src="/images/plus-circle-fill.svg" class="w-4 opacity-70 hover:opacity-100 rotate-45">
           </button>
-          
+
           <button class="bg-black px-2 py-2 rounded-r-md" @click="constract">
             <img src="/images/arrow-up-right-circle.svg">
           </button>
@@ -127,6 +128,8 @@ function getQueryParams(url) {
 /* Add any additional styles here if needed */
 input {
   /*font-family: monospace !important;*/
+  font-family: 'Inter',
+    'Noto Sans JP' !important
 }
 
 .wrapper {
