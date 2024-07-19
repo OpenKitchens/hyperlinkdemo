@@ -126,6 +126,7 @@ function getQueryParams(url) {
 
 <style scoped>
 /* Add any additional styles here if needed */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+JP:wght@100..900&display=swap');
 input {
   /*font-family: monospace !important;*/
   font-family: 'Inter',
