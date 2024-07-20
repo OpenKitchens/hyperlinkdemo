@@ -89,12 +89,12 @@ if(query.link){
 
 <style scoped>
 .anim {
-  animation: animation 1s
+  animation: animation 0.5s
 }
 
 @keyframes animation {
   0% {
-    transform: translateX(80px);
+    transform: translateX(50px);
     opacity: 0;
   }
 

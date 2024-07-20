@@ -11,6 +11,20 @@
       <input type="text" v-model="linkUrl" class="bg-transparent text-white text-sm flex-grow outline-none" />
     </div>
 
+    <p class="text-sm mb-4">ハイパーリンクAPI</p>
+
+    <div>
+      <div class="bg-gray-800 rounded flex items-center p-2 mb-3">
+        <span class="mr-2"><img src="/images/bezier.svg" class="invert w-6"></span>
+        <input type="text" class="bg-transparent text-white text-sm flex-grow outline-none"
+          placeholder="taila://api.chat" />
+
+        <button class="py-1 px-1 rounded text-base font-semibold transition-colors" @click="next">
+          <img src="/images/plus-circle-fill.svg" class="w-4 invert opacity-70 hover:opacity-100">
+        </button>
+      </div>
+    </div>
+
     <p class="text-sm mb-4">共有先</p>
 
     <div>
@@ -37,7 +51,11 @@
         <img src="/images/check-circle-fill.svg" class="w-8 mr-2 invert">
         <span class="text-white text-xl font-bold">シェアしました！</span>
       </div>
-      <p class="text-sm">引き続き素敵なインターネットライフを！</p>
+      <button class="text-white mt-2">
+        <span class="text-white text-sm mr-2 opacity-70">shareインスタンスで待機する</span>
+        <img src="/images/arrow-up-right-circle.svg" class="transform rotate-90 inline-block w-4 opacity-70">
+      </button>
+      <p class="text-sm mt-2 text-white">引き続き素敵なインターネットライフを！</p>
     </div>
   </div>
 </template>
@@ -79,12 +97,12 @@ const participants = ref([
 
 <style scoped>
 .anim {
-  animation: animation 1s
+  animation: animation 0.5s
 }
 
 @keyframes animation {
   0% {
-    transform: translateX(80px);
+    transform: translateX(50px);
     opacity: 0;
   }
 

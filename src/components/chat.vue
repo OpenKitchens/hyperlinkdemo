@@ -21,14 +21,20 @@
   <div class="bg-gray-900 text-white p-4 rounded-lg max-w-md font-sans overflow-hidden" v-if="1 == displayNum">
     <div class="anim">
       <div class="flex justify-between items-center mb-4">
-        <h2 class="text-lg font-bold">chat #水曜のダウンタウン実況</h2>
+        <h2 class="text-lg font-bold ml-2">chat #水曜のダウンタウン実況</h2>
+        
+        <button class="bg-gray-700 rounded flex">
+          <p class="px-1 flex"><img src="/images/person-fill.svg" class="invert">42</p>
+          <p class="px-1 flex"><img src="/images/eye-fill.svg" class="invert">127</p>
+        </button>
+
         <button class="text-gray-400">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
           </svg>
         </button>
       </div>
-      <p class="text-sm text-gray-400 mb-4">製作者: すい@0x9C8fF314C9Bc7F6e59A9d9225Fb22946...</p>
+      <p class="text-sm text-gray-400 mb-4 ml-2">製作者: すい@0x9C8fF314C9Bc7F6e59A9d9225Fb22946...</p>
 
       <div class="space-y-4 mb-4 max-h-80 overflow-y-auto">
         <div v-for="(message, index) in messages" :key="index" class="flex items-start space-x-3">
@@ -94,12 +100,12 @@ if(query.link){
 
 <style scoped>
 .anim {
-  animation: animation 1s
+  animation: animation 0.5s
 }
 
 @keyframes animation {
   0% {
-    transform: translateX(80px);
+    transform: translateX(50px);
     opacity: 0;
   }
 
