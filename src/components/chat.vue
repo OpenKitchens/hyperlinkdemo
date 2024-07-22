@@ -13,7 +13,7 @@
 
     <button
       class="bg-white text-[#FF5E72] w-full py-2 rounded text-base font-semibold hover:bg-neutral-100 transition-colors"
-      @click="next">
+      @click="handleNext">
       リンク！
     </button>
   </div>
@@ -64,7 +64,16 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, defineEmits } from 'vue';
+
+const emit = defineEmits(['next']);
+
+const handleNext = () => {
+  next();
+  console.log("next"); // 確認用ログ
+  emit('next');
+};
+
 
 const linkUrl = ref('https://localhost:3000');
 

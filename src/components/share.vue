@@ -50,7 +50,7 @@
           {{ instance }}
         </option>
       </select>
-      <button @click="next" class="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600">
+      <button @click="handleNext" class="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600">
         リンク!
       </button>
     </div>
@@ -72,7 +72,23 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, defineEmits } from 'vue';
+
+const emit = defineEmits(['next']);
+
+const handleNext = () => {
+  next();
+  console.log("next"); // 確認用ログ
+  emit('next');
+};
+
+
+const query = JSON.parse(sessionStorage.getItem("query"))
+console.log(query.link)
+
+if(query.link){
+  next()
+}
 
 const linkUrl = ref('https://localhost:3000');
 

@@ -20,7 +20,7 @@
             {{ instance }}
           </option>
         </select>
-        <button @click="next" class="bg-neutral-200 text-black px-4 py-1 rounded hover:bg-neutral-100">
+        <button @click="handleNext" class="bg-neutral-200 text-black px-4 py-1 rounded hover:bg-neutral-100">
           ポスト
         </button>
       </div>
@@ -43,7 +43,23 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, defineEmits } from 'vue';
+
+const emit = defineEmits(['next']);
+
+const handleNext = () => {
+  next();
+  console.log("next"); // 確認用ログ
+  emit('next');
+};
+
+
+const query = JSON.parse(sessionStorage.getItem("query"))
+console.log(query.link)
+
+if(query.link){
+  next()
+}
 
 const postContent = ref('');
 const fontSize = ref('medium');

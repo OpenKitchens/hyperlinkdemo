@@ -40,40 +40,32 @@
           {{ instance }}
         </option>
       </select>
-      <button @click="next" class="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600">
+      <button @click="handleNext" class="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600">
         コンストラクト！
       </button>
     </div>
   </div>
 
   <div class="text-neutral-200 p-4 rounded-lg bg-[#262626] border border-neutral-700 anim mr-24" v-if="1 == displayNum">
-    <div class="flex items-center mb-4">
-      <div class="w-8 h-8 bg-neutral-700 rounded-full mr-3"></div>
-      <div class="text-lg flex-grow">
-        どっち派
-      </div>
-    </div>
-
-    <div class="bg-[#333333] border border-neutral-600 p-3 rounded-t-lg">
-      <div class="space-y-2">
-        <div v-for="(option, index) in pollOptions" :key="index" class="flex items-center relative">
-          <input v-model="option.text"
-            class="bg-neutral-800 text-neutral-200 p-2 rounded-lg flex-grow border border-neutral-600 w-full"
-            :placeholder="`選択肢 ${index + 1}`" />
-        </div>
-      </div>
-
-    </div>
-    <div class="bg-[#333333] border border-neutral-600 p-3 rounded-b-lg">
-      <div class="flex items-center ml-2">
-        <div class="flex-grow">投稿期間 7/27日まで</div>
-      </div>
-    </div>
+    エディットに転送...
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, defineEmits } from 'vue';
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
+
+const emit = defineEmits(['next']);
+
+const handleNext = () => {
+  next();
+  console.log("next"); // 確認用ログ
+  emit('next');
+  router.push("edit")
+};
+
 
 const pollTitle = ref('');
 const pollOptions = ref([
@@ -97,6 +89,12 @@ const displayNum = ref(0)
 
 const next = () => {
   displayNum.value++
+}
+const query = JSON.parse(sessionStorage.getItem("query"))
+console.log(query.link)
+
+if(query.link){
+  next()
 }
 </script>
 

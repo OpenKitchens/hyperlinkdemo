@@ -3,21 +3,21 @@
 
     <div class="mb-4 text-lg font-bold">メッセージ</div>
 
-    <div class="mb-4 flex hover:bg-neutral-700 p-2 rounded" @click="next">
+    <div class="mb-4 flex hover:bg-neutral-700 p-2 rounded" @click="handleNext">
       <img src="/images/acheader.png" class="w-12 h-12 rounded-full mr-2">
       <div>
         <p class="text-lg">窪@alterna</p>
         <p class="text-sm">先日は、お返事いただきありがとうござい...</p>
       </div>
     </div>
-    <div class="mb-4 flex hover:bg-neutral-700 p-2 rounded" @click="next">
+    <div class="mb-4 flex hover:bg-neutral-700 p-2 rounded" @click="handleNext">
       <img src="/images/acheader.png" class="w-12 h-12 rounded-full mr-2">
       <div>
         <p class="text-lg">窪@alterna</p>
         <p class="text-sm">先日は、お返事いただきありがとうござい...</p>
       </div>
     </div>
-    <div class="mb-4 flex hover:bg-neutral-700 p-2 rounded" @click="next">
+    <div class="mb-4 flex hover:bg-neutral-700 p-2 rounded" @click="handleNext">
       <img src="/images/acheader.png" class="w-12 h-12 rounded-full mr-2">
       <div>
         <p class="text-lg">窪@alterna</p>
@@ -65,7 +65,23 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, defineEmits } from 'vue';
+
+const emit = defineEmits(['next']);
+
+const handleNext = () => {
+  next();
+  console.log("next"); // 確認用ログ
+  emit('next');
+};
+
+
+const query = JSON.parse(sessionStorage.getItem("query"))
+console.log(query.link)
+
+if(query.link){
+  next()
+}
 
 const pollTitle = ref('');
 const pollOptions = ref([
