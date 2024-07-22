@@ -5,6 +5,10 @@ import Chat from "@/components/chat.vue"
 import Vc from "@/components/vc.vue"
 import Share from "@/components/share.vue"
 import Post from "@/components/post.vue"
+import Vote from "@/components/vote.vue"
+import Dm from "@/components/dm.vue"
+import Radio from "@/components/radio.vue"
+import createSites from "@/components/createSites.vue"
 
 const tab = ref(0)
 
@@ -12,12 +16,15 @@ const change = (num) => {
   tab.value = num
 }
 
-
 const UI = {
   chat: Chat,
   vc: Vc,
   share: Share,
-  post: Post
+  post: Post,
+  vote: Vote,
+  dm: Dm,
+  radio: Radio,
+  createsites: createSites
 }
 
 const trends = ref([
@@ -149,7 +156,7 @@ function getQueryParams(url) {
             <img src="/images/plus-circle-fill.svg" class="w-4 opacity-70 hover:opacity-100 rotate-45 dark:invert">
           </button>
 
-          <button class="bg-black px-2 py-2 rounded-r-md dark:bg-blue-700" @click="constract">
+          <button class="bg-black px-2 py-2 rounded-r-md dark:bg-blue-500" @click="constract">
             <img src="/images/arrow-up-right-circle.svg">
           </button>
         </div>

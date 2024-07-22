@@ -1,48 +1,59 @@
 <template>
-  <div class="bg-[#7A55FD] text-white p-5 rounded-lg max-w-sm font-sans slideDown" v-if="0 == displayNum">
-    <div class="flex">
-      <h2 class="text-lg font-bold mb-2">スーパーシェア先を指定</h2>
-      <button class="ml-auto"><img src="/images/indent.svg" class="invert w-6"></button>
-    </div>
-    <p class="text-sm mb-4">スーパーシェアの対象を見つけられませんでした。</p>
 
-    <div class="bg-gray-800 rounded flex items-center p-2 mb-3">
-      <span class="mr-2"><img src="/images/link.svg" class="invert w-6"></span>
-      <input type="text" v-model="linkUrl" class="bg-transparent text-white text-sm flex-grow outline-none" />
-    </div>
-
-    <p class="text-sm mb-4">ハイパーリンクAPI</p>
-
-    <div>
-      <div class="bg-gray-800 rounded flex items-center p-2 mb-3">
-        <span class="mr-2"><img src="/images/bezier.svg" class="invert w-6"></span>
-        <input type="text" class="bg-transparent text-white text-sm flex-grow outline-none"
-          placeholder="taila://api.chat" />
-
-        <button class="py-1 px-1 rounded text-base font-semibold transition-colors" @click="next">
-          <img src="/images/plus-circle-fill.svg" class="w-4 invert opacity-70 hover:opacity-100">
-        </button>
+  <div class="text-neutral-200 p-4 rounded-lg bg-[#262626] border border-neutral-700 slideDown mr-4"
+    v-if="0 == displayNum">
+    <h2 class="text-lg font-bold mb-4">スーパーシェア先を指定</h2>
+    <div class="bg-[#333333] border border-neutral-600 p-3 rounded-lg">
+      <div class="">
+        <div class="flex items-center relative mb-2">
+          <input
+            class="bg-neutral-800 text-neutral-200 p-2 rounded-lg flex-grow border border-neutral-600 w-full focus:outline-none pl-10"
+            placeholder="localhost:3000" />
+          <button class="absolute left-2"><img src="/images/link.svg" class="invert w-6"></button>
+        </div>
+        <div class="flex items-center relative mb-6">
+          <input
+            class="bg-neutral-800 text-neutral-200 p-2 rounded-lg flex-grow border border-neutral-600 w-full focus:outline-none pl-10"
+            placeholder="@everyone" />
+          <button class="absolute left-2"><img src="/images/person-fill.svg" class="invert w-6"></button>
+        </div>
+        <div class="flex items-center relative mb-2">
+          <input
+            class="bg-neutral-800 text-neutral-200 p-2 rounded-lg flex-grow border border-neutral-600 w-full focus:outline-none pl-10"
+            placeholder="taila://api.chat" />
+          <button class="absolute left-2"><img src="/images/bezier.svg" class="invert w-6"></button>
+        </div>
+        <div class="flex items-center relative mb-2">
+          <input
+            class="bg-neutral-800 text-neutral-200 p-2 rounded-lg flex-grow border border-neutral-600 w-full focus:outline-none pl-10"
+            placeholder="taila://api.vc" />
+          <button class="absolute left-2"><img src="/images/bezier.svg" class="invert w-6"></button>
+        </div>
+        <div class="flex items-center relative mb-2">
+          <input
+            class="bg-neutral-800 text-neutral-200 p-2 rounded-lg flex-grow border border-neutral-600 w-full focus:outline-none pl-10"
+            placeholder="taila://api.readme" />
+          <button class="absolute left-2"><img src="/images/bezier.svg" class="invert w-6"></button>
+        </div>
       </div>
     </div>
-
-    <p class="text-sm mb-4">共有先</p>
-
-    <div>
-      <div class="bg-gray-800 rounded flex items-center p-2 mb-3">
-        <span class="mr-2"><img src="/images/person-fill.svg" class="invert w-6"></span>
-        <input type="text" class="bg-transparent text-white text-sm flex-grow outline-none" placeholder="@everyone" />
-
-        <button class="py-1 px-1 rounded text-base font-semibold transition-colors" @click="next">
-          <img src="/images/plus-circle-fill.svg" class="w-4 invert opacity-70 hover:opacity-100">
-        </button>
-      </div>
+    <div class="bg-[#333333] border border-neutral-600 p-3 rounded-lg my-5">
+      <h2 class="text-lg font-bold mb-2 flex">Basic Theme<img src="/images/arrow-up-right-circle.svg" class="ml-2 w-5"></h2>
+      <h2 class="text-sm mb-4 opacity-80">テーマを変更しますか？</h2>
+      <img src="/images/basic_theme.png">
     </div>
 
-    <button
-      class="bg-white text-[#7A55FD] w-full py-2 rounded text-base font-semibold hover:bg-gray-100 transition-colors"
-      @click="next">
-      リンク！
-    </button>
+    <div class="flex justify-between items-center">
+      <select v-model="selectedInstance" class="bg-neutral-700 text-neutral-200 px-3 py-1 rounded">
+        <option disabled value="">インスタンスを選択</option>
+        <option v-for="instance in instances" :key="instance" :value="instance">
+          {{ instance }}
+        </option>
+      </select>
+      <button @click="next" class="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600">
+        リンク!
+      </button>
+    </div>
   </div>
 
   <div class="bg-[#7A55FD] flex flex-col p-6 rounded-lg max-w-md overflow-hidden" v-if="1 == displayNum">
@@ -82,6 +93,12 @@ const messages = ref([
 ]);
 
 const displayNum = ref(0)
+
+
+const postContent = ref('');
+const fontSize = ref('medium');
+const selectedInstance = ref('');
+const instances = ['インスタンス1', 'インスタンス2', 'インスタンス3'];
 
 const next = () => {
   displayNum.value++
