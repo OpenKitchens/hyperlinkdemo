@@ -19,7 +19,7 @@
     </button>
   </div>
 
-  <div class="bg-[#7A55FD] flex flex-col p-6 rounded-lg max-w-md overflow-hidden" v-if="1 == displayNum">
+  <div class="bg-[#7A55FD] flex flex-col p-6 rounded-lg max-w-md overflow-hidden w-[28rem]" v-if="1 == displayNum">
     <div class="anim">
       <div class="flex items-center mb-4">
         <img src="/images/mic-fill.svg" class="w-8 mr-2 invert">

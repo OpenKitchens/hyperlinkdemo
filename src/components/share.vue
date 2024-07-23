@@ -8,7 +8,7 @@
         <div class="flex items-center relative mb-2">
           <input
             class="bg-neutral-800 text-neutral-200 p-2 rounded-lg flex-grow border border-neutral-600 w-full focus:outline-none pl-10"
-            placeholder="localhost:3000" />
+            placeholder="localhost:3000" v-model="input" />
           <button class="absolute left-2"><img src="/images/link.svg" class="invert w-6"></button>
         </div>
         <div class="flex items-center relative mb-6">
@@ -62,7 +62,7 @@
         <img src="/images/check-circle-fill.svg" class="w-8 mr-2 invert">
         <span class="text-white text-xl font-bold">シェアしました！</span>
       </div>
-      <button class="text-white mt-2">
+      <button class="text-white mt-2" @click="router.push('shareExample')">
         <span class="text-white text-sm mr-2 opacity-70">shareインスタンスで待機する</span>
         <img src="/images/arrow-up-right-circle.svg" class="transform rotate-90 inline-block w-4 opacity-70">
       </button>
@@ -73,6 +73,10 @@
 
 <script setup>
 import { ref, defineEmits } from 'vue';
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
+const input = ref("https://river.tango-gacha.com/")
 
 const emit = defineEmits(['next']);
 
@@ -80,6 +84,7 @@ const handleNext = () => {
   next();
   console.log("next"); // 確認用ログ
   emit('next');
+  router.push('shareExample')
 };
 
 

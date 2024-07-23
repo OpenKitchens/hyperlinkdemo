@@ -21,7 +21,7 @@
   <div class="bg-neutral-800 border border-neutral-700 text-white p-4 rounded-lg max-w-md font-sans overflow-hidden" v-if="1 == displayNum">
     <div class="anim">
       <div class="flex justify-between items-center mb-4">
-        <h2 class="text-lg font-bold ml-2">chat #水曜のダウンタウン実況</h2>
+        <h2 class="text-lg font-bold ml-2">chat #単語ガチャ雑談実況</h2>
         
         <button class="bg-neutral-700 rounded flex">
           <p class="px-1 flex"><img src="/images/person-fill.svg" class="invert">42</p>
