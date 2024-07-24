@@ -12,6 +12,8 @@ import createSites from "@/components/createSites.vue"
 
 const tab = ref(0)
 
+const viewNum = ref()
+
 const change = (num) => {
   tab.value = num
 }
@@ -83,9 +85,9 @@ function getQueryParams(url) {
 </script>
 
 <template>
-  <div class="flex h-screen max-w-[1020px] mx-auto">
-    <aside class="w-64">
-      <div class="position fixed w-64 p-4">
+  <div class="flex h-screen max-w-[1280px] mx-auto">
+    <aside class="w-72">
+      <div class="position fixed w-72 p-4">
         <img src="/images/logo.svg" class="px-3 dark:invert">
         <nav>
           <ul class="mt-8">
@@ -199,14 +201,16 @@ function getQueryParams(url) {
             <p class="text-sm">{{ trend.sub }}</p>
           </li>
 
-          <p class="px-auto w-full bg-neutral-800 py-3 rounded-b-lg pl-5">もっと見る...</p>
+          <p class="px-auto w-full bg-neutral-200 dark:bg-neutral-800 py-3 rounded-b-lg pl-5">もっと見る...</p>
         </ul>
       </div>
 
-      <div class="mt-4 h-15 border border-gray-300 rounded-lg bg-gray-100 dark:bg-[#1e1e1e] dark:border-neutral-700 mb-24">
-        <p class="text-lg font-bold text-white ml-5 my-3">シーズン</p>
+      <div
+        class="mt-4 h-15 border border-gray-300 rounded-lg bg-gray-100 dark:bg-[#1e1e1e] dark:border-neutral-700 mb-24">
+        <p class="text-lg font-bold dark:text-white ml-5 my-3">シーズン</p>
         <div class="dark:bg-neutral-900 rounded-b-lg">
-          <div class="bg-[url('/images/background.png')] w-full h-32 relative before:bg-[#00000AA] bg-cover rounded-b-lg">
+          <div
+            class="bg-[url('/images/background.png')] w-full h-32 relative before:bg-[#00000AA] bg-cover rounded-b-lg">
             <div class="absolute inset-0 bottom-0 bg-[#0000000A]">
               <p class="text-lg font-bold text-white ml-5 mt-5">Now Season 11</p>
               <p class="text-xl font-bold text-white ml-5">アナーキー・イン・ザ・インターネット</p>
@@ -308,7 +312,81 @@ function getQueryParams(url) {
       <div class="text-[#00000000]">半径0mの世界を変える 革命起こす幕開けの夜</div>
     </main>
 
-    <aside class="w-32">
+    <aside class="w-96 text-black">
+      <div class="mt-4 ml-4 h-15 rounded-lg p-5"
+        style="background: linear-gradient(258.56deg, #5FEE83 27.54%, #5FEEBB 103.89%)">
+        <img src="/images/logo1.svg" class="invert w-36">
+        <p class="text-xs mt-1">大体こんな感じっていうビジョンサイト</p>
+
+        <p class="font-bold mt-2">水Protocolの概要</p>
+        <div class="text-xs">
+          水ProtocolはwwwにSNSの機能を付け加えたものです。
+          コレにより分散的で文化的なインターネットをたのしめます。
+          ハイパーリンクを入力することでコンストラクトされる機能を利用できます。
+          <br>
+          tailaスキームを利用するとこのページのグローバルやダイレクト、トレンドそして所属するインスタンスに表示されます。
+          これによりいま盛り上がってるサイトなどがわかり楽しくてリアルタイムなインターネットを楽しめます。
+        </div>
+      </div>
+
+      <div class="mt-4 ml-4 h-15 rounded-lg p-5 bg-neutral-50 dark:bg-neutral-800 border dark:border-neutral-700 dark:text-white">
+        <p class="font-bold">試しに左のインプットに入力してみよう！</p>
+        <code class="mt-3 mb-2 inline-block bg-[#ffffffba] text-sm dark:bg-[#ffffff0F] dark:border dark:border-neutral-700">taila://api.share</code>
+        <button class="block text-sm text-blue-500" @click="viewNum = 0" v-show="viewNum != 0 ">詳しく</button>
+        <div class="text-xs opacity-70" v-show="viewNum == 0">
+          Webサイトそしてネット上の情報を拡散できる。
+          この拡散時にテーマをインポートとその他のリンク機能を指定することによって情報が入り乱れるネット空間を楽しめる。
+        </div>
+
+        <code class="mt-3 mb-2 inline-block bg-[#ffffffba] text-sm dark:bg-[#ffffff0F] dark:border dark:border-neutral-700">taila://api.chat</code>
+        <button class="block text-sm text-blue-500" @click="viewNum = 1" v-show="viewNum != 1 ">詳しく</button>
+        <div class="text-xs opacity-70" v-show="viewNum == 1">
+          このハイパーリンク一つで様々なメディアにチャット画面を表示させることができる。
+          チャットを展開したページが掲示板のスレッドのように扱われれ、このページのグローバル等に表示される。
+        </div>
+
+        <code class="mt-3 mb-2 inline-block bg-[#ffffffba] text-sm dark:bg-[#ffffff0F] dark:border dark:border-neutral-700">taila://api.vc</code>
+        <button class="block text-sm text-blue-500" @click="viewNum = 2" v-show="viewNum != 2 ">詳しく</button>
+        <div class="text-xs opacity-70" v-show="viewNum == 2">
+          このハイパーリンク一つで様々なメディアにボイスチャット画面を表示させることができる。
+          テキストよりもよりリアルタイムに雑談ができる。
+        </div>
+
+        <code class="mt-3 mb-2 inline-block bg-[#ffffffba] text-sm dark:bg-[#ffffff0F] dark:border dark:border-neutral-700">taila://api.vote</code>
+        <button class="block text-sm text-blue-500" @click="viewNum = 3" v-show="viewNum != 3">詳しく</button>
+        <div class="text-xs opacity-70" v-show="viewNum == 3">
+          投票が行える。
+          コレによりサイトに加えてほしい変更や意見などがわかりやすくなる。
+        </div>
+
+        <code class="mt-3 mb-2 inline-block bg-[#ffffffba] text-sm dark:bg-[#ffffff0F] dark:border dark:border-neutral-700">taila://api.radio</code>
+        <button class="block text-sm text-blue-500" @click="viewNum = 4" v-show="viewNum != 4">詳しく</button>
+        <div class="text-xs opacity-70" v-show="viewNum == 4">
+          音楽配信やラジオを投稿することができる。
+          自分の作成したWebサイトにハイパーリンクとして埋め込むことができ、スマートコンストラクタ無しに分散のバックエンドシステムを使える。
+        </div>
+
+        <code class="mt-3 mb-2 inline-block bg-[#ffffffba] text-sm dark:bg-[#ffffff0F] dark:border dark:border-neutral-700">taila://api.post</code>
+        <button class="block text-sm text-blue-500" @click="viewNum = 5" v-show="viewNum != 5">詳しく</button>
+        <div class="text-xs opacity-70" v-show="viewNum == 5">
+          Twitterのように短文投稿ができる。
+          グローバルやダイレクト、トレンド、所属インスタンスなどに表示される。
+        </div>
+
+        <code class="mt-3 mb-2 inline-block bg-[#ffffffba] text-sm dark:bg-[#ffffff0F] dark:border dark:border-neutral-700">taila://api.dm</code>
+        <button class="block text-sm text-blue-500" @click="viewNum = 0" v-show="viewNum != 6">詳しく</button>
+        <div class="text-xs opacity-70" v-show="viewNum == 6">
+          ダイレクトメッセージを送信できる。
+          これにより直接のプライベートな会話ができる。
+        </div>
+
+        <code class="mt-3 mb-2 inline-block bg-[#ffffffba] text-sm dark:bg-[#ffffff0F] dark:border dark:border-neutral-700">taila://api.createsites</code>
+        <button class="block text-sm text-blue-500" @click="viewNum = 7" v-show="viewNum != 7">詳しく</button>
+        <div class="text-xs opacity-70" v-show="viewNum == 7">
+          マークダウンとあらかじめ用意されたテーマ、そしてハイパーリンクの埋め込みによって高度なWebサイトをつくることができる。
+          IPFSを利用してホスティングされる。
+        </div>
+      </div>
     </aside>
   </div>
 
@@ -338,6 +416,12 @@ function getQueryParams(url) {
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
   /* ブルーのシャドウを追加 */
   border-radius: 0.4rem;
+}
+
+code {
+  border-radius: 3px;
+  font-family: courier, monospace;
+  padding: 0 3px;
 }
 </style>
 
