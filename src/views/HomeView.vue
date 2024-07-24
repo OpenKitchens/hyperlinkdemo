@@ -323,7 +323,8 @@ function getQueryParams(url) {
           ハイパーリンクを入力で機能を利用可能
           <br>
           tailaスキームを利用すると、このページの<br>グローバルやダイレクト、トレンドそして<br>所属するインスタンスに表示されます。
-          これによりいま盛り上がってるサイトなどがわかりリアル<br>タイムなインターネットを楽しめます。
+          <br>
+          盛り上がってるサイトなどがわかりリアル<br>タイムなインターネットを楽しめます。
         </div>
 
         <img src="/images/Mascot.svg" class="position absolute w-40 right-[-2rem] bottom-[-3.2rem] z-1">
