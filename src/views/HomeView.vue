@@ -12,8 +12,6 @@ import createSites from "@/components/createSites.vue"
 
 const tab = ref(0)
 
-const viewNum = ref()
-
 const change = (num) => {
   tab.value = num
 }
@@ -313,76 +311,70 @@ function getQueryParams(url) {
     </main>
 
     <aside class="w-96 text-black">
-      <div class="mt-4 ml-4 h-15 rounded-lg p-5"
+      <div class="mt-4 ml-4 h-15 rounded-lg p-5 relative overflow-hidden"
         style="background: linear-gradient(258.56deg, #5FEE83 27.54%, #5FEEBB 103.89%)">
         <img src="/images/logo1.svg" class="invert w-36">
         <p class="text-xs mt-1">大体こんな感じっていうビジョンサイト</p>
 
         <p class="font-bold mt-2">水Protocolの概要</p>
-        <div class="text-xs">
+        <div class="text-xs z-2">
           水ProtocolはwwwにSNSの機能を付け加えたものです。
-          コレにより分散的で文化的なインターネットをたのしめます。
-          ハイパーリンクを入力することでコンストラクトされる機能を利用できます。
+          コレにより分散的で文化的なインターネットを。<br>
+          ハイパーリンクを入力で機能を利用可能
           <br>
-          tailaスキームを利用するとこのページのグローバルやダイレクト、トレンドそして所属するインスタンスに表示されます。
-          これによりいま盛り上がってるサイトなどがわかり楽しくてリアルタイムなインターネットを楽しめます。
+          tailaスキームを利用すると、このページの<br>グローバルやダイレクト、トレンドそして<br>所属するインスタンスに表示されます。
+          これによりいま盛り上がってるサイトなどがわかりリアル<br>タイムなインターネットを楽しめます。
         </div>
+
+        <img src="/images/Mascot.svg" class="position absolute w-40 right-[-2rem] bottom-[-3.2rem] z-1">
       </div>
 
       <div class="mt-4 ml-4 h-15 rounded-lg p-5 bg-neutral-50 dark:bg-neutral-800 border dark:border-neutral-700 dark:text-white">
         <p class="font-bold">試しに左のインプットに入力してみよう！</p>
         <code class="mt-3 mb-2 inline-block bg-[#ffffffba] text-sm dark:bg-[#ffffff0F] dark:border dark:border-neutral-700">taila://api.share</code>
-        <button class="block text-sm text-blue-500" @click="viewNum = 0" v-show="viewNum != 0 ">詳しく</button>
-        <div class="text-xs opacity-70" v-show="viewNum == 0">
+        <div class="text-xs opacity-70">
           Webサイトそしてネット上の情報を拡散できる。
           この拡散時にテーマをインポートとその他のリンク機能を指定することによって情報が入り乱れるネット空間を楽しめる。
         </div>
 
         <code class="mt-3 mb-2 inline-block bg-[#ffffffba] text-sm dark:bg-[#ffffff0F] dark:border dark:border-neutral-700">taila://api.chat</code>
-        <button class="block text-sm text-blue-500" @click="viewNum = 1" v-show="viewNum != 1 ">詳しく</button>
-        <div class="text-xs opacity-70" v-show="viewNum == 1">
+        <div class="text-xs opacity-70">
           このハイパーリンク一つで様々なメディアにチャット画面を表示させることができる。
           チャットを展開したページが掲示板のスレッドのように扱われれ、このページのグローバル等に表示される。
         </div>
 
         <code class="mt-3 mb-2 inline-block bg-[#ffffffba] text-sm dark:bg-[#ffffff0F] dark:border dark:border-neutral-700">taila://api.vc</code>
-        <button class="block text-sm text-blue-500" @click="viewNum = 2" v-show="viewNum != 2 ">詳しく</button>
-        <div class="text-xs opacity-70" v-show="viewNum == 2">
+        <div class="text-xs opacity-70">
           このハイパーリンク一つで様々なメディアにボイスチャット画面を表示させることができる。
           テキストよりもよりリアルタイムに雑談ができる。
         </div>
 
         <code class="mt-3 mb-2 inline-block bg-[#ffffffba] text-sm dark:bg-[#ffffff0F] dark:border dark:border-neutral-700">taila://api.vote</code>
-        <button class="block text-sm text-blue-500" @click="viewNum = 3" v-show="viewNum != 3">詳しく</button>
-        <div class="text-xs opacity-70" v-show="viewNum == 3">
+        <div class="text-xs opacity-70">
           投票が行える。
           コレによりサイトに加えてほしい変更や意見などがわかりやすくなる。
         </div>
 
         <code class="mt-3 mb-2 inline-block bg-[#ffffffba] text-sm dark:bg-[#ffffff0F] dark:border dark:border-neutral-700">taila://api.radio</code>
-        <button class="block text-sm text-blue-500" @click="viewNum = 4" v-show="viewNum != 4">詳しく</button>
-        <div class="text-xs opacity-70" v-show="viewNum == 4">
+        <div class="text-xs opacity-70">
           音楽配信やラジオを投稿することができる。
           自分の作成したWebサイトにハイパーリンクとして埋め込むことができ、スマートコンストラクタ無しに分散のバックエンドシステムを使える。
         </div>
 
         <code class="mt-3 mb-2 inline-block bg-[#ffffffba] text-sm dark:bg-[#ffffff0F] dark:border dark:border-neutral-700">taila://api.post</code>
-        <button class="block text-sm text-blue-500" @click="viewNum = 5" v-show="viewNum != 5">詳しく</button>
-        <div class="text-xs opacity-70" v-show="viewNum == 5">
+        <div class="text-xs opacity-70">
           Twitterのように短文投稿ができる。
           グローバルやダイレクト、トレンド、所属インスタンスなどに表示される。
         </div>
 
         <code class="mt-3 mb-2 inline-block bg-[#ffffffba] text-sm dark:bg-[#ffffff0F] dark:border dark:border-neutral-700">taila://api.dm</code>
-        <button class="block text-sm text-blue-500" @click="viewNum = 0" v-show="viewNum != 6">詳しく</button>
-        <div class="text-xs opacity-70" v-show="viewNum == 6">
+        <div class="text-xs opacity-70">
           ダイレクトメッセージを送信できる。
           これにより直接のプライベートな会話ができる。
         </div>
 
         <code class="mt-3 mb-2 inline-block bg-[#ffffffba] text-sm dark:bg-[#ffffff0F] dark:border dark:border-neutral-700">taila://api.createsites</code>
-        <button class="block text-sm text-blue-500" @click="viewNum = 7" v-show="viewNum != 7">詳しく</button>
-        <div class="text-xs opacity-70" v-show="viewNum == 7">
+        <div class="text-xs opacity-70">
           マークダウンとあらかじめ用意されたテーマ、そしてハイパーリンクの埋め込みによって高度なWebサイトをつくることができる。
           IPFSを利用してホスティングされる。
         </div>
