@@ -32,6 +32,38 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/ShareView.vue')
+    },
+    {
+      path: '/shareZdnet',
+      name: 'shareZdnet',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/ZdnetView.vue')
+    },
+    {
+      path: '/shareBlender',
+      name: 'shareBlender',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/shareBlender.vue')
+    },
+    {
+      path: '/sikanokoView',
+      name: 'sikanokoView',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/sikanokoView.vue')
+    },
+    {
+      path: '/rockmanView',
+      name: 'rockmanView',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/rockmanView.vue')
     }
   ]
 })

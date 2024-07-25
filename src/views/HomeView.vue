@@ -28,10 +28,10 @@ const UI = {
 }
 
 const trends = ref([
-  { id: 1, text: 'Linux 6.10 カーネルが正式リリース', chat: '20k', sub: 'moyasi@温泉同好会 Webサイトを共有(Chat・VC)' },
-  { id: 2, text: 'ニコニコ動画緊急避難所', chat: '155k', sub: 'moyasi@温泉同好会 Webサイトを共有(Chat・VC)' },
-  { id: 3, text: '#大谷翔平', chat: '20k', sub: 'ブラッティーナチーズ@グローバル Webサイトを共有(Chat・VC)' },
-  { id: 4, text: 'ロックマン リメイク版', chat: '2k', sub: 'ブラッティーナチーズ@グローバル Webサイトを共有(Chat・VC)' },
+  { id: 1, text: 'Linux 6.10 カーネルが正式リリース', chat: '20k', sub: 'moyasi@温泉同好会 Webサイトを共有(Chat・VC)', url: "shareZdnet" },
+  { id: 2, text: 'Blender 4.2 の新EEVEEは簡単にリアルな描画が可能', chat: '155k', sub: 'moyasi@温泉同好会 Webサイトを共有(Chat・VC)', url: "shareBlender" },
+  { id: 3, text: '「のこし」がマルコフ連鎖で現れる確率が奇跡的...', chat: '20k', sub: 'ブラッティーナチーズ@グローバル Webサイトを共有(Chat・VC)', url: "sikanokoView" },
+  { id: 4, text: '「ロックマン」は大切なIPの一つ', chat: '2k', sub: 'ブラッティーナチーズ@グローバル Webサイトを共有(Chat・VC)', url: "rockmanView" },
 ]);
 
 const trans = ref([
@@ -80,6 +80,9 @@ function getQueryParams(url) {
 
   return queryParams;
 }
+
+import { useRouter } from 'vue-router'
+const router = useRouter()
 </script>
 
 <template>
@@ -189,10 +192,10 @@ function getQueryParams(url) {
         <ul class="pt-4 bg-neutral-50 rounded-b-lg dark:bg-neutral-900">
           <li v-for="trend in trends" :key="trend.id" class="mb-4 px-5">
             <div class="flex items-center justify-between">
-              <span class="font-semibold text-black text-lg dark:text-white">{{ trend.text }}</span>
+              <button class="font-semibold text-black text-lg dark:text-white" @click="router.push( trend.url )">{{ trend.text }}</button>
               <button class="text-neutral-300">
                 <span class="text-neutral-400 text-sm mr-2">{{ trend.chat }}</span>
-                <img src="/images/arrow-up-right-circle.svg"
+                <img src="/images/arrow-up-right-circle.svg" @click="router.push( trend.url )"
                   class="invert transform rotate-90 inline-block w-4 opacity-70 dark:invert-0">
               </button>
             </div>
@@ -322,7 +325,7 @@ function getQueryParams(url) {
           コレにより分散的で文化的なインターネットを。<br>
           ハイパーリンクを入力で機能を利用可能
           <br>
-          tailaスキームを利用すると、このページの<br>グローバルやダイレクト、トレンドそして<br>所属するインスタンスに表示されます。
+          <span class="font-bold">tailaスキームを利用すると、スタートページの<br>グローバルやダイレクト、トレンドそして<br>所属するインスタンスに表示されます。</span>
           <br>
           盛り上がってるサイトなどがわかりリアル<br>タイムなインターネットを楽しめます。
         </div>
