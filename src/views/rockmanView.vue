@@ -13,6 +13,7 @@ import createSites from "@/components/createSites.vue"
 sessionStorage.setItem('query', JSON.stringify({ link: "https://localhost:3000" }));
 </script>
 
+
 <template>
   <div class="flex h-screen max-w-[1280px] mx-auto">
 
