@@ -104,6 +104,7 @@ const router = useRouter()
               <p class="my-2">ホーム</p>
               </p>
             </li>
+            
 
             <li @click="change(1)" v-show="tab == 1"
               class="bg-black text-white rounded-md dark:bg-[#00000000] dark:hover:bg-neutral-800">
